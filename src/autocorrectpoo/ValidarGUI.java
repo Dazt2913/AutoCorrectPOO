@@ -15,6 +15,7 @@ public class ValidarGUI extends javax.swing.JPanel {
      * Creates new form ValidarGUI
      */
     public ValidarGUI() {
+        initListModel();
         initComponents();
     }
 
@@ -37,7 +38,8 @@ public class ValidarGUI extends javax.swing.JPanel {
 
         jButton1.setText("Validar");
 
-        listaArchivosAll.setModel(new ModeloArchivos());
+        listaArchivosAll.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        listaArchivosAll.setModel(modeloArchivosAll);
         jScrollPane1.setViewportView(listaArchivosAll);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -78,6 +80,9 @@ public class ValidarGUI extends javax.swing.JPanel {
     private javax.swing.JList listaArchivosAll;
     // End of variables declaration//GEN-END:variables
 
-    private class ModeloArchivos extends javax.swing.DefaultListModel{
+    private javax.swing.DefaultListModel modeloArchivosAll;
+    
+    private void initListModel(){
+        modeloArchivosAll = new javax.swing.DefaultListModel();
     }
 }
