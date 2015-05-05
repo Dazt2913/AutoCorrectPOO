@@ -15,7 +15,7 @@ public class ValidarGUI extends javax.swing.JPanel {
      * Creates new form ValidarGUI
      */
     public ValidarGUI() {
-        initListModel();
+        initUserGeneratedComponents();
         initComponents();
     }
 
@@ -82,7 +82,7 @@ public class ValidarGUI extends javax.swing.JPanel {
 
     private javax.swing.DefaultListModel modeloArchivosAll;
     
-    private void initListModel(){
+    private void initUserGeneratedComponents(){
         modeloArchivosAll = new javax.swing.DefaultListModel();
     }
 }
