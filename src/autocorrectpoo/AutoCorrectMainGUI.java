@@ -35,11 +35,11 @@ public class AutoCorrectMainGUI extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainTabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, 577, Short.MAX_VALUE)
+            .addComponent(mainTabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainTabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, 460, Short.MAX_VALUE)
+            .addComponent(mainTabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
         );
 
         pack();
