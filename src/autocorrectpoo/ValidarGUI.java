@@ -29,14 +29,19 @@ public class ValidarGUI extends javax.swing.JPanel {
     private void initComponents() {
 
         instruccionesLabel = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        validarButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         listaArchivosAll = new javax.swing.JList();
 
         instruccionesLabel.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         instruccionesLabel.setText("Seleccione un archivo para validar...");
 
-        jButton1.setText("Validar");
+        validarButton.setText("Validar");
+        validarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                validarButtonClick(evt);
+            }
+        });
 
         listaArchivosAll.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         listaArchivosAll.setModel(modeloArchivosAll);
@@ -57,7 +62,7 @@ public class ValidarGUI extends javax.swing.JPanel {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(validarButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -68,16 +73,20 @@ public class ValidarGUI extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(validarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void validarButtonClick(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_validarButtonClick
+        
+    }//GEN-LAST:event_validarButtonClick
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel instruccionesLabel;
-    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JList listaArchivosAll;
+    private javax.swing.JButton validarButton;
     // End of variables declaration//GEN-END:variables
 
     private javax.swing.DefaultListModel modeloArchivosAll;
