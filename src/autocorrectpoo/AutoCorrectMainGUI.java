@@ -34,6 +34,8 @@ public class AutoCorrectMainGUI extends javax.swing.JFrame {
         mainTabbedPane.add("Escribir/Modificar",
             new AutoCorrectMainPanel());
         mainTabbedPane.add("Validar", new ValidarGUI());
+        mainTabbedPane.add("Instrucciones",
+            new InstruccionesPanel());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
