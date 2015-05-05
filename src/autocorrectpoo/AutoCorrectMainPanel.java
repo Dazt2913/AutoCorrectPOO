@@ -28,8 +28,29 @@ public class AutoCorrectMainPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jScrollPane2 = new javax.swing.JScrollPane();
+        archivosScrollPane = new javax.swing.JScrollPane();
+        listaArchivos = new javax.swing.JList();
+        autoresLabel = new javax.swing.JLabel();
+        archivosLabel = new javax.swing.JLabel();
+        modificarButton = new javax.swing.JButton();
+        autoresScrollPane = new javax.swing.JScrollPane();
+        listaAutores = new javax.swing.JList();
+        escribirButton = new javax.swing.JButton();
+
+        listaArchivos.setModel(modeloArchivos);
+        archivosScrollPane.setViewportView(listaArchivos);
+
+        autoresLabel.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        autoresLabel.setText("Autores:");
+
+        archivosLabel.setText("Archivos del autor:");
+
+        modificarButton.setText("Modificar Archivo");
+
+        listaAutores.setModel(modeloAutores);
+        autoresScrollPane.setViewportView(listaAutores);
+
+        escribirButton.setText("Escribir");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -37,26 +58,50 @@ public class AutoCorrectMainPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(modificarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(escribirButton, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(autoresLabel)
+                            .addComponent(autoresScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE))
+                        .addGap(28, 28, 28)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(archivosLabel)
+                            .addComponent(archivosScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2))
-                .addContainerGap(105, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(autoresLabel)
+                    .addComponent(archivosLabel))
+                .addGap(15, 15, 15)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(archivosScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE)
+                    .addComponent(autoresScrollPane))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(modificarButton)
+                    .addComponent(escribirButton))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel archivosLabel;
+    private javax.swing.JScrollPane archivosScrollPane;
+    private javax.swing.JLabel autoresLabel;
+    private javax.swing.JScrollPane autoresScrollPane;
+    private javax.swing.JButton escribirButton;
+    private javax.swing.JList listaArchivos;
+    private javax.swing.JList listaAutores;
+    private javax.swing.JButton modificarButton;
     // End of variables declaration//GEN-END:variables
     private javax.swing.DefaultListModel modeloAutores, modeloArchivos;
     
