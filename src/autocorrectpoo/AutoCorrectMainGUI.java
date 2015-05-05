@@ -31,6 +31,10 @@ public class AutoCorrectMainGUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        mainTabbedPane.add("Escribir/Modificar",
+            new AutoCorrectMainPanel());
+        mainTabbedPane.add("Validar", new ValidarGUI());
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -41,10 +45,6 @@ public class AutoCorrectMainGUI extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(mainTabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
         );
-
-        mainTabbedPane.add("Escribir/Modificar",
-            new AutoCorrectMainPanel());
-        mainTabbedPane.add("Validar", new ValidarGUI());
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
