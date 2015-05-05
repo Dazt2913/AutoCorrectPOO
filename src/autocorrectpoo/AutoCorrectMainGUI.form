@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
@@ -34,6 +34,9 @@
   </Layout>
   <SubComponents>
     <Container class="javax.swing.JTabbedPane" name="mainTabbedPane">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_allCodePost" type="java.lang.String" value="mainTabbedPane.add(&quot;Escribir/Modificar&quot;, &#xa;        new AutoCorrectMainPanel());&#xa;mainTabbedPane.add(&quot;Validar&quot;, new ValidarGUI());"/>
+      </AuxValues>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
     </Container>

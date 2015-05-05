@@ -42,6 +42,10 @@ public class AutoCorrectMainGUI extends javax.swing.JFrame {
             .addComponent(mainTabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
         );
 
+        mainTabbedPane.add("Escribir/Modificar",
+            new AutoCorrectMainPanel());
+        mainTabbedPane.add("Validar", new ValidarGUI());
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
