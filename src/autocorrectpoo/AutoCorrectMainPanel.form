@@ -27,12 +27,12 @@
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="autoresLabel" min="-2" max="-2" attributes="0"/>
-                          <Component id="autoresScrollPane" pref="197" max="32767" attributes="0"/>
+                          <Component id="autoresScrollPane" pref="207" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="archivosLabel" min="-2" max="-2" attributes="0"/>
-                          <Component id="archivosScrollPane" pref="263" max="32767" attributes="0"/>
+                          <Component id="archivosScrollPane" pref="273" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -50,7 +50,7 @@
               </Group>
               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="archivosScrollPane" pref="281" max="32767" attributes="0"/>
+                  <Component id="archivosScrollPane" pref="321" max="32767" attributes="0"/>
                   <Component id="autoresScrollPane" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
