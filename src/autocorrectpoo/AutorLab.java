@@ -1,3 +1,7 @@
+/*
+    Singleton to manage all the authors and its files
+*/
+
 package autocorrectpoo;
 
 import java.util.LinkedList;
@@ -118,5 +122,13 @@ public class AutorLab {
                 }
             }
         }
+    }
+    
+    public Autor[] getAutores(){
+        Autor[] autores = new Autor[mAutoresLinkedList.size()];
+        for(int i=0; i<autores.length; i++){
+            autores[i] = (Autor)mAutoresLinkedList.get(i);
+        }
+        return autores;
     }
 }
