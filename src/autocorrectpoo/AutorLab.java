@@ -97,6 +97,10 @@ public class AutorLab {
                 closeFile(input);
             }
         }
+        
+        if(mAutoresLinkedList.size()==0){
+            mAutoresLinkedList.add(new Autor("[sin autor]"));
+        }
     }
     
     public void modificarAutoresDeArchivo(Autor[] nuevosAutores){
