@@ -30,10 +30,8 @@ public class Validador {
             scanner.useDelimiter("[\\W]+"); 
             while (scanner.hasNext()) {
                 String sc1 = scanner.next();
-                System.out.println("1-" + sc1);
                 String sc2 = scanner.next();
                 list.add(sc2);
-                 System.out.println("2-" + sc2);
             }
             scanner.close();
         } catch (FileNotFoundException e) {
@@ -51,27 +49,24 @@ public class Validador {
             autorNames.add(aut.getNombre());
         }
         LinkedList<String> codeList = makeCodeArray(file);
-        LinkedList<Double> authorsMatch = new LinkedList();
-        
+        double[] authors = new double[autor.size()];
+        for (int i = 0; i < authors.length; i++) {
+            authors[i] = 0;
+        }
+        for (int i = 0; i<codeList.size(); i++) {
             for (int j = 0; j<dictionaryList.size(); j++) {
-            LinkedList<String> temp = (LinkedList)dictionaryList.get(j);
-            System.out.println("t:" + temp.get(j));    
-            if (codeList.contains(temp.get(j)) == true) {
-                
-                    if (authorsMatch.size()==0) {
-                        authorsMatch.add(j, 1.0);
-                    } else {
-                        authorsMatch.add(j, j+1.0); 
-                    }
-             
+                LinkedList<String> tempDic = (LinkedList)dictionaryList.get(j);
+                if(tempDic.contains(codeList.get(i))) {
+                    authors[j]++;
+                }
             }
-            }  
+        }  
         LinkedList<String> finalAuthors = new LinkedList();
         for (int i = 0; i<autorNames.size(); i++) {
-           double percentage = (100.0 * authorsMatch.get(i)) / codeList.size();
-           System.out.println(authorsMatch.get(i));
-           authorsMatch.add(i, percentage);
-           String text = String.format("%s - %.2f", autorNames.get(i), percentage);
+           double percentage = (100.0 * authors[i]) / codeList.size();
+           authors[i] = percentage;
+           String text = String.format("%s - %.1f", autorNames.get(i), percentage);
+           text += "%";
            finalAuthors.add(text);
         }
         Collections.sort(finalAuthors);
