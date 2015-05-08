@@ -121,7 +121,7 @@ public class AutoCorrectMainPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void escribirButtonClick(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_escribirButtonClick
-        WriteEntryDialog dialog = new WriteEntryDialog(new Autor());
+        WriteEntryDialog dialog = new WriteEntryDialog(new Autor(), 1);
     }//GEN-LAST:event_escribirButtonClick
 
 
@@ -146,11 +146,16 @@ public class AutoCorrectMainPanel extends javax.swing.JPanel {
     
     private class WriteEntryDialog extends javax.swing.JDialog{
         public PanelEscritura panelEscritura;
-        public WriteEntryDialog(Autor autor){
+        public WriteEntryDialog(Autor autor, int opcion){
             super();
-            panelEscritura = new PanelEscritura(autor, this);
-            this.getContentPane().add(panelEscritura);
-            setTitle("Nueva Entrada");
+            switch(opcion){
+                case 1:
+                    panelEscritura = new PanelEscritura(autor, this);
+                    this.getContentPane().add(panelEscritura);
+                    setTitle("Nueva Entrada");
+                    break;
+                
+            }
             setSize(514, 614);
             setVisible(true);
             setModalityType(java.awt.Dialog.ModalityType.APPLICATION_MODAL);
