@@ -20,7 +20,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" pref="508" max="32767" attributes="0"/>
+                      <Component id="mainScrollPane" pref="508" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
@@ -42,7 +42,7 @@
               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
               <Component id="instruccionesLabel" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jScrollPane1" pref="311" max="32767" attributes="0"/>
+              <Component id="mainScrollPane" pref="311" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="validarButton" min="-2" pref="44" max="-2" attributes="0"/>
           </Group>
@@ -66,7 +66,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="validarButtonClick"/>
       </Events>
     </Component>
-    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+    <Container class="javax.swing.JScrollPane" name="mainScrollPane">
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
