@@ -151,7 +151,7 @@ public class AutoCorrectMainPanel extends javax.swing.JPanel {
             panelEscritura = new PanelEscritura(autor, this);
             this.getContentPane().add(panelEscritura);
             setTitle("Nueva Entrada");
-            setSize(485, 609);
+            setSize(514, 614);
             setVisible(true);
             setModalityType(java.awt.Dialog.ModalityType.APPLICATION_MODAL);
         }
