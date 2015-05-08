@@ -102,6 +102,13 @@ public class PanelEscritura extends javax.swing.JPanel {
     }//GEN-LAST:event_corregirButtonActionPerformed
 
     private void guardarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarButtonActionPerformed
+        FormatterTool.initialize(autor.getNombre()+Integer.toString(autor.getNumDeArchivo()));
+        FormatterTool.getFormatter().format(escrituraTextArea.getText());
+        FormatterTool.closeFormatter();
+        java.io.File file = new java.io.File(
+                "src/res/"+ autor.getNombre() + Integer.toString(autor.getNumDeArchivo()) +".dat");
+        
+        autor.addToEntries(file);
         parentDialog.dispose();
     }//GEN-LAST:event_guardarButtonActionPerformed
 

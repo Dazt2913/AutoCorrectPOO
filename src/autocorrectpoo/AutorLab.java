@@ -35,8 +35,7 @@ public class AutorLab {
             input = new ObjectInputStream(new FileInputStream("src/res/autores.dat"));
         }
         catch(IOException e){
-            javax.swing.JOptionPane.showMessageDialog(null, "Error loading authors.");
-            System.exit(1);
+            
         }
         finally{
         }
@@ -48,7 +47,7 @@ public class AutorLab {
         }
         catch(IOException e){
             javax.swing.JOptionPane.showMessageDialog(null, "Error uploading authors.");
-            System.exit(1);
+            e.printStackTrace();
         }
         finally{
         }
@@ -99,7 +98,13 @@ public class AutorLab {
         }
         
         if(mAutoresLinkedList.size()==0){
-            mAutoresLinkedList.add(new Autor("[sin autor]"));
+            Autor a = new Autor("[sin autor]");
+            mAutoresLinkedList.add(a);
+            
+            initObjectOutputStream();
+            Autor[] as = new Autor[1];
+            as[0] = a ;
+            modificarAutoresDeArchivo(as);
         }
     }
     
@@ -119,7 +124,7 @@ public class AutorLab {
                 }
                 catch(IOException e){
                     javax.swing.JOptionPane.showMessageDialog(null, "Error saving authors");
-                    System.exit(1);
+                    e.printStackTrace();
                 }
                 finally{
                     closeFile(output);

@@ -48,8 +48,18 @@ public class AutoCorrectMainPanel extends javax.swing.JPanel {
         archivosLabel.setText("Archivos del autor:");
 
         modificarButton.setText("Modificar Archivo");
+        modificarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modificarArchivoClick(evt);
+            }
+        });
 
         listaAutores.setModel(modeloAutores);
+        listaAutores.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                listaAutoresChanged(evt);
+            }
+        });
         autoresScrollPane.setViewportView(listaAutores);
 
         escribirButton.setText("Escribir");
@@ -122,17 +132,65 @@ public class AutoCorrectMainPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void eliminarAutorButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarAutorButtonActionPerformed
-        // TODO add your handling code here:
+        int autorIndex = listaAutores.getSelectedIndex();
+        Autor a = (Autor)modeloAutores.getElementAt(autorIndex);
+        java.io.File diccionario = a.getDiccionario();
+        diccionario.delete();
+        modeloAutores.remove(autorIndex);
+        
+        Autor[] auts = new Autor[modeloAutores.getSize()];
+        for(int i = 0; i < auts.length; i++){
+            auts[i] = (Autor)modeloAutores.getElementAt(i);
+        }
+        
+        AutorLab.get().modificarAutoresDeArchivo(auts);
     }//GEN-LAST:event_eliminarAutorButtonActionPerformed
 
     private void escribirButtonClick(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_escribirButtonClick
-        WriteEntryDialog dialog = new WriteEntryDialog(new Autor(), 1);
+        int indexAutor = listaAutores.getSelectedIndex();
+        Autor a = (Autor)modeloAutores.getElementAt(indexAutor);
+        
+        WriteEntryDialog dialog = new WriteEntryDialog(a, 1);
     }//GEN-LAST:event_escribirButtonClick
 
     private void agregarAutorButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarAutorButtonActionPerformed
         String nombreAutor = javax.swing.JOptionPane.showInputDialog(
                 "Ingrese el nombre del autor: ");
+        Autor a = new Autor(nombreAutor);
+        modeloAutores.addElement(a);
+        
+        Autor[] auts = new Autor[modeloAutores.getSize()];
+        for(int i = 0; i < auts.length; i++){
+            auts[i] = (Autor)modeloAutores.getElementAt(i);
+        }
+        
+        AutorLab.get().modificarAutoresDeArchivo(auts);
     }//GEN-LAST:event_agregarAutorButtonActionPerformed
+
+    private void listaAutoresChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listaAutoresChanged
+        if (evt.getValueIsAdjusting()) {
+            int indexSelected = listaAutores.getSelectedIndex();
+            Autor a = (Autor)modeloAutores.getElementAt(indexSelected);
+            
+            for(int i = 0; i < modeloArchivos.size(); i++){
+                modeloArchivos.remove(i);
+            }
+            
+            java.util.LinkedList<java.io.File> entradas = a.getEntradas();
+            
+            for(int i = 0; i < entradas.size(); i++){
+                modeloArchivos.addElement(entradas.get(i));
+            }
+        }           
+    }//GEN-LAST:event_listaAutoresChanged
+
+    private void modificarArchivoClick(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarArchivoClick
+        int indexFile = listaArchivos.getSelectedIndex();
+        int indexAutor = listaAutores.getSelectedIndex();
+        
+        Autor a = (Autor)modeloAutores.getElementAt(indexAutor);
+        ModifyEntryDialog modifyEntryDialog = new ModifyEntryDialog(indexFile, a);
+    }//GEN-LAST:event_modificarArchivoClick
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -151,6 +209,10 @@ public class AutoCorrectMainPanel extends javax.swing.JPanel {
     
     private void initUserGeneratedComponents(){
         modeloAutores = new javax.swing.DefaultListModel();
+        Autor[] autores = AutorLab.get().getAutores();
+        for (Autor autor : autores) {
+            modeloAutores.addElement((Autor)autor);
+        }
         modeloArchivos = new javax.swing.DefaultListModel();
     }
     
@@ -166,6 +228,22 @@ public class AutoCorrectMainPanel extends javax.swing.JPanel {
                     break;
                 
             }
+            setSize(514, 614);
+            setVisible(true);
+            setModalityType(java.awt.Dialog.ModalityType.APPLICATION_MODAL);
+        }
+    }
+    
+    private class ModifyEntryDialog extends javax.swing.JDialog{
+        public PanelModificacion panelModificacion;
+        
+        public ModifyEntryDialog(int indexOfFile, Autor autor){
+            super();
+            java.io.File file = (java.io.File)autor.getEntradas().get(indexOfFile);
+            String fileString = FormatterTool.fileToString(file);
+            panelModificacion = new PanelModificacion(autor, indexOfFile, fileString, this);
+            this.getContentPane().add(panelModificacion);
+            setTitle("Modificar entrada");
             setSize(514, 614);
             setVisible(true);
             setModalityType(java.awt.Dialog.ModalityType.APPLICATION_MODAL);

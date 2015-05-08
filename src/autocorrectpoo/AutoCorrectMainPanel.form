@@ -104,6 +104,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Modificar Archivo"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="modificarArchivoClick"/>
+      </Events>
     </Component>
     <Container class="javax.swing.JScrollPane" name="autoresScrollPane">
 
@@ -115,6 +118,9 @@
               <Connection code="modeloAutores" type="code"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="valueChanged" listener="javax.swing.event.ListSelectionListener" parameters="javax.swing.event.ListSelectionEvent" handler="listaAutoresChanged"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

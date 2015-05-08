@@ -8,30 +8,27 @@ import java.io.FileNotFoundException;
 import java.lang.SecurityException;
 import java.util.FormatterClosedException;
 import java.util.NoSuchElementException;
+import java.io.Serializable;
 
-public class Autor {
+public class Autor implements Serializable{
     private String nombre;
     private File diccionario;
     private LinkedList<File> entradas;
-    private Formatter output;
+    private int numDeArchivo;
         
     public Autor(String nombre){
         this.nombre = nombre;
         entradas = new LinkedList<File>();
-        try{
-            output = new Formatter("src/res/diccionario.dat");
-            if(output!=null){
-                 output.close();
-            }
-            diccionario = new File("src/res/" + nombre + ".dat");
-        }
-        catch(FileNotFoundException e){
-            
-        }
+        FormatterTool.initialize(getNombre());
+        FormatterTool.closeFormatter();
+        diccionario = new File("src/res/" + nombre + ".dat");
+        numDeArchivo = 0;
+        
     }
     
     public void addToEntries(File file) {
         getEntradas().add(file); 
+        numDeArchivo++;
     }
     
     public void updateDictionary() {
@@ -136,14 +133,10 @@ public class Autor {
     
     private void openFile() {
         try {
-            output = new Formatter("src/res/" + getNombre() + ".dat");
+            FormatterTool.initialize(getNombre());
         }
         catch (SecurityException se) {
             System.out.println("Write permission denied. Terminating.");
-            System.exit(1);
-        }
-        catch (FileNotFoundException fnf) {
-            System.out.println("Error opening file. Terminating");
             System.exit(1);
         }
     } 
@@ -152,7 +145,7 @@ public class Autor {
         System.out.println(list.size());
         for (int i = 0; i < list.size(); i++) {
             try {
-                output.format("%s %s\n", list.get(i), codeList.get(i));
+                FormatterTool.getFormatter().format("%s %s\n", list.get(i), codeList.get(i));
             } catch (FormatterClosedException fce) {
                 System.err.println("Error writing the file. Terminating.");
                 break;
@@ -164,9 +157,7 @@ public class Autor {
     }
     
     private void closeFile() {
-        if (output != null) {
-            output.close();
-        }
+        FormatterTool.closeFormatter();
     }
   
     /**
@@ -209,5 +200,14 @@ public class Autor {
      */
     public void setEntradas(LinkedList<File> aEntradas) {
         entradas = aEntradas;
+    }
+    
+    public int getNumDeArchivo(){
+        return numDeArchivo;
+    }
+    
+    @Override
+    public String toString(){
+        return getNombre();
     }
 }
