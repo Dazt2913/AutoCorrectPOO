@@ -4,6 +4,7 @@ import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Formatter;
 
 public class Corrector {
     public static String corregirTexto(String texto){
@@ -46,7 +47,7 @@ public class Corrector {
         return null;
     }
     
-    private static String obtenerMathRating(String word){
+    public static String obtenerMathRating(String word){
         String currentWordSoundex = "" + word;
         switch(currentWordSoundex.substring(0, 1)){
             case "a":
@@ -130,5 +131,35 @@ public class Corrector {
         }
         
         return value;
+    }
+    
+    public static void agregarPalabraADiccionario(String palabra){
+        try{
+            String dictionary = "";
+            
+            Scanner sc = new Scanner(new File("src/res/diccionario.dat"));
+            
+            while(sc.hasNext()){
+                String currentWordWithMathRating = sc.nextLine();
+                dictionary += currentWordWithMathRating + "\n";
+            }
+            
+            sc.close();
+            
+            String mathRating = obtenerMathRating(palabra);
+            dictionary += palabra + " " + mathRating + "\n";
+            
+            
+            Formatter writeNewDictionary = new Formatter("src/res/diccionario.dat");
+            
+            writeNewDictionary.format(dictionary);
+            writeNewDictionary.close();
+        }
+        catch(FileNotFoundException e){
+            System.out.println("File not found");
+        }
+        finally{
+            
+        }
     }
 }
