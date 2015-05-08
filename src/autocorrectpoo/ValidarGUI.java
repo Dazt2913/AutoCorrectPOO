@@ -78,8 +78,24 @@ public class ValidarGUI extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void validarButtonClick(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_validarButtonClick
-        javax.swing.JOptionPane.showMessageDialog(this, "Hola", "Resultado", 
-                javax.swing.JOptionPane.PLAIN_MESSAGE);
+        java.util.LinkedList<Autor> autores = new java.util.LinkedList<>();
+        Autor[] as = AutorLab.get().getAutores();
+        for(int i = 1; i < as.length; i++){
+            autores.add(as[i]);
+        }
+        int indexSelected = listaArchivosAll.getSelectedIndex();
+        java.io.File file = (java.io.File)modeloArchivosAll.get(indexSelected);
+        
+        Validador val = new Validador();
+        java.util.LinkedList<String> res = val.Validate(autores, file);
+        
+        String res2 = "";
+        
+        for(int i = res.size()-1; i >= 0; i--){
+            res2 += res.get(i);
+        }
+        
+        javax.swing.JOptionPane.showMessageDialog(null, res2);
     }//GEN-LAST:event_validarButtonClick
 
 
@@ -94,5 +110,13 @@ public class ValidarGUI extends javax.swing.JPanel {
     
     private void initUserGeneratedComponents(){
         modeloArchivosAll = new javax.swing.DefaultListModel();
+//        Autor[] autores = AutorLab.get().getAutores();
+//        Autor sinAutor = autores[0];
+//        java.util.LinkedList<java.io.File> linkedFiles = sinAutor.getEntradas();
+//        
+//        for(int i = 0; i <linkedFiles.size(); i++){
+//            System.out.println(linkedFiles.get(i));
+//            modeloArchivosAll.addElement(linkedFiles.get(i));
+//        }
     }
 }

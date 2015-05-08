@@ -179,6 +179,7 @@ public class AutoCorrectMainPanel extends javax.swing.JPanel {
             java.util.LinkedList<java.io.File> entradas = a.getEntradas();
             
             for(int i = 0; i < entradas.size(); i++){
+                System.out.println(entradas.get(i));
                 modeloArchivos.addElement(entradas.get(i));
             }
         }           

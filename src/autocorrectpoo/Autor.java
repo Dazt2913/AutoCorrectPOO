@@ -29,6 +29,7 @@ public class Autor implements Serializable{
     public void addToEntries(File file) {
         getEntradas().add(file); 
         numDeArchivo++;
+        //updateDictionary();
     }
     
     public void updateDictionary() {
