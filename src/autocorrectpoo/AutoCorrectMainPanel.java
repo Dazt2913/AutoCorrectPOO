@@ -36,8 +36,8 @@ public class AutoCorrectMainPanel extends javax.swing.JPanel {
         autoresScrollPane = new javax.swing.JScrollPane();
         listaAutores = new javax.swing.JList();
         escribirButton = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        agregarAutorButton = new javax.swing.JButton();
+        eliminarAutorButton = new javax.swing.JButton();
 
         listaArchivos.setModel(modeloArchivos);
         archivosScrollPane.setViewportView(listaArchivos);
@@ -59,12 +59,17 @@ public class AutoCorrectMainPanel extends javax.swing.JPanel {
             }
         });
 
-        jButton1.setText("Agregar Autor");
-
-        jButton2.setText("Eliminar Autor");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        agregarAutorButton.setText("Agregar Autor");
+        agregarAutorButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                agregarAutorButtonActionPerformed(evt);
+            }
+        });
+
+        eliminarAutorButton.setText("Eliminar Autor");
+        eliminarAutorButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminarAutorButtonActionPerformed(evt);
             }
         });
 
@@ -82,9 +87,9 @@ public class AutoCorrectMainPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton1)
+                                .addComponent(agregarAutorButton)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton2))
+                                .addComponent(eliminarAutorButton))
                             .addComponent(autoresScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 275, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -110,29 +115,34 @@ public class AutoCorrectMainPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(modificarButton)
                     .addComponent(escribirButton)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(agregarAutorButton)
+                    .addComponent(eliminarAutorButton))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void eliminarAutorButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarAutorButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_eliminarAutorButtonActionPerformed
 
     private void escribirButtonClick(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_escribirButtonClick
         WriteEntryDialog dialog = new WriteEntryDialog(new Autor(), 1);
     }//GEN-LAST:event_escribirButtonClick
 
+    private void agregarAutorButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarAutorButtonActionPerformed
+        String nombreAutor = javax.swing.JOptionPane.showInputDialog(
+                "Ingrese el nombre del autor: ");
+    }//GEN-LAST:event_agregarAutorButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton agregarAutorButton;
     private javax.swing.JLabel archivosLabel;
     private javax.swing.JScrollPane archivosScrollPane;
     private javax.swing.JLabel autoresLabel;
     private javax.swing.JScrollPane autoresScrollPane;
+    private javax.swing.JButton eliminarAutorButton;
     private javax.swing.JButton escribirButton;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JList listaArchivos;
     private javax.swing.JList listaAutores;
     private javax.swing.JButton modificarButton;
