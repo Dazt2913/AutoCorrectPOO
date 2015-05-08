@@ -35,6 +35,7 @@ public class PanelEscritura extends javax.swing.JPanel {
         escrituraTextArea = new javax.swing.JTextArea();
         corregirButton = new javax.swing.JButton();
         guardarButton = new javax.swing.JButton();
+        guardarEnDiccionarioButton = new javax.swing.JButton();
 
         escrituraTextArea.setColumns(20);
         escrituraTextArea.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
@@ -58,6 +59,13 @@ public class PanelEscritura extends javax.swing.JPanel {
             }
         });
 
+        guardarEnDiccionarioButton.setText("Guardar en Diccionario");
+        guardarEnDiccionarioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guardarEnDiccionarioButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -68,35 +76,48 @@ public class PanelEscritura extends javax.swing.JPanel {
                     .addComponent(textAreaScrollPane)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(corregirButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 147, Short.MAX_VALUE)
-                        .addComponent(guardarButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(guardarEnDiccionarioButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(6, 6, 6)
+                        .addComponent(guardarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(textAreaScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 553, Short.MAX_VALUE)
+                .addComponent(textAreaScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 558, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(corregirButton, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
-                    .addComponent(guardarButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(guardarButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(guardarEnDiccionarioButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void corregirButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_corregirButtonActionPerformed
-        // TODO add your handling code here:
+        String texto = escrituraTextArea.getText();
+        String textoChecado = Corrector.corregirTexto(texto);
+        escrituraTextArea.setText(texto + "\n\n\n" + "Propuesta:\n" + textoChecado);
     }//GEN-LAST:event_corregirButtonActionPerformed
 
     private void guardarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarButtonActionPerformed
         parentDialog.dispose();
     }//GEN-LAST:event_guardarButtonActionPerformed
 
+    private void guardarEnDiccionarioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarEnDiccionarioButtonActionPerformed
+        String palabra = javax.swing.JOptionPane.showInputDialog("Agregar palabra");
+        if(palabra!=null){
+            Corrector.agregarPalabraADiccionario(palabra);
+        }
+    }//GEN-LAST:event_guardarEnDiccionarioButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton corregirButton;
     private javax.swing.JTextArea escrituraTextArea;
     private javax.swing.JButton guardarButton;
+    private javax.swing.JButton guardarEnDiccionarioButton;
     private javax.swing.JScrollPane textAreaScrollPane;
     // End of variables declaration//GEN-END:variables
 
