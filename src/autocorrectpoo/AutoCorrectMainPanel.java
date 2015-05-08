@@ -53,6 +53,11 @@ public class AutoCorrectMainPanel extends javax.swing.JPanel {
         autoresScrollPane.setViewportView(listaAutores);
 
         escribirButton.setText("Escribir");
+        escribirButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                escribirButtonClick(evt);
+            }
+        });
 
         jButton1.setText("Agregar Autor");
 
@@ -115,6 +120,10 @@ public class AutoCorrectMainPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void escribirButtonClick(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_escribirButtonClick
+        WriteEntryDialog dialog = new WriteEntryDialog(new Autor());
+    }//GEN-LAST:event_escribirButtonClick
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel archivosLabel;
@@ -133,5 +142,18 @@ public class AutoCorrectMainPanel extends javax.swing.JPanel {
     private void initUserGeneratedComponents(){
         modeloAutores = new javax.swing.DefaultListModel();
         modeloArchivos = new javax.swing.DefaultListModel();
+    }
+    
+    private class WriteEntryDialog extends javax.swing.JDialog{
+        public PanelEscritura panelEscritura;
+        public WriteEntryDialog(Autor autor){
+            super();
+            panelEscritura = new PanelEscritura(autor, this);
+            this.getContentPane().add(panelEscritura);
+            setTitle("Nueva Entrada");
+            setSize(485, 609);
+            setVisible(true);
+            setModalityType(java.awt.Dialog.ModalityType.APPLICATION_MODAL);
+        }
     }
 }

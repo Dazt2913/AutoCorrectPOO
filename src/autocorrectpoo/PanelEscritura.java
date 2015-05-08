@@ -13,9 +13,13 @@ public class PanelEscritura extends javax.swing.JPanel {
 
     /**
      * Creates new form PanelEscritura
+     * @param autor
+     * @param parentDialog
      */
-    public PanelEscritura() {
+    public PanelEscritura(Autor autor, javax.swing.JDialog parentDialog) {
         initComponents();
+        this.autor = autor;
+        this.parentDialog = parentDialog;
     }
 
     /**
@@ -85,7 +89,7 @@ public class PanelEscritura extends javax.swing.JPanel {
     }//GEN-LAST:event_corregirButtonActionPerformed
 
     private void guardarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarButtonActionPerformed
-        // TODO add your handling code here:
+        parentDialog.dispose();
     }//GEN-LAST:event_guardarButtonActionPerformed
 
 
@@ -95,4 +99,7 @@ public class PanelEscritura extends javax.swing.JPanel {
     private javax.swing.JButton guardarButton;
     private javax.swing.JScrollPane textAreaScrollPane;
     // End of variables declaration//GEN-END:variables
+
+    private Autor autor;
+    private javax.swing.JDialog parentDialog;
 }
