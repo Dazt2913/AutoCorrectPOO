@@ -29,8 +29,8 @@ public class PanelEscritura extends javax.swing.JPanel {
 
         textAreaScrollPane = new javax.swing.JScrollPane();
         escrituraTextArea = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        corregirButton = new javax.swing.JButton();
+        guardarButton = new javax.swing.JButton();
 
         escrituraTextArea.setColumns(20);
         escrituraTextArea.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
@@ -39,18 +39,18 @@ public class PanelEscritura extends javax.swing.JPanel {
         escrituraTextArea.setWrapStyleWord(true);
         textAreaScrollPane.setViewportView(escrituraTextArea);
 
-        jButton1.setText("Corregir Ortografía");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        corregirButton.setText("Corregir Ortografía");
+        corregirButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                corregirButtonActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Guardar y Salir ");
-        jButton2.setPreferredSize(new java.awt.Dimension(163, 29));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        guardarButton.setText("Guardar y Salir ");
+        guardarButton.setPreferredSize(new java.awt.Dimension(163, 29));
+        guardarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                guardarButtonActionPerformed(evt);
             }
         });
 
@@ -63,9 +63,9 @@ public class PanelEscritura extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(textAreaScrollPane)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(corregirButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 147, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(guardarButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -75,24 +75,24 @@ public class PanelEscritura extends javax.swing.JPanel {
                 .addComponent(textAreaScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 553, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(corregirButton, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+                    .addComponent(guardarButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void corregirButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_corregirButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_corregirButtonActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void guardarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_guardarButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton corregirButton;
     private javax.swing.JTextArea escrituraTextArea;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton guardarButton;
     private javax.swing.JScrollPane textAreaScrollPane;
     // End of variables declaration//GEN-END:variables
 }
